@@ -1,0 +1,65 @@
+{
+  "name": "galatea-sdk",
+  "version": "0.1.0",
+  "description": "Rehearse AI agents, run them on Galatea, and check their reports yourself.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usegalatea/galatea-sdk.git"
+  },
+  "homepage": "https://usegalatea.com/developers",
+  "bugs": {
+    "url": "https://github.com/usegalatea/galatea-sdk/issues"
+  },
+  "keywords": [
+    "ai-agents",
+    "x402",
+    "robinhood-chain",
+    "agent-runtime",
+    "galatea"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./x402": {
+      "types": "./dist/x402.d.ts",
+      "import": "./dist/x402.js"
+    }
+  },
+  "bin": {
+    "galatea-agent": "./bin/galatea-agent.mjs"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "peerDependencies": {
+    "viem": "^2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "viem": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "viem": "^2.57.20",
+    "vitest": "^5.1.0"
+  }
+}
